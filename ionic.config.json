@@ -1,0 +1,7 @@
+{
+  "name": "FatzDemo",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
