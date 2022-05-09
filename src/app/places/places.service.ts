@@ -21,7 +21,7 @@ export class PlacesService {
 
   getPlace(id: number){
    return {
-     ... this.Places.find(place => {
+     ...this.Places.find(place => {
       return place.id === id
     })
    };

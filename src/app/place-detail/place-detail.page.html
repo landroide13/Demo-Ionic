@@ -1,9 +1,47 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>PlaceDetail</ion-title>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/places"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ place.title }} - #{{ place.id }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="deletePlace()">
+        <ion-icon name="trash"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col class="ion-no-padding">
+        <ion-img [src]="place.imageUrl"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h1 class="ion-text-center">{{ place.title }}</h1>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <ion-list *ngIf="place.comments && place.comments.length > 0; else noCom">
+          <h4 class="ion-text-center">Comments</h4>
+          <ion-item *ngFor="let com of place.comments">
+            <ion-label>{{ com }}</ion-label>
+          </ion-item>
+        </ion-list>
+        <ng-template #noCom>
+          <ion-text>
+            <p>No Comments Yet !</p>
+          </ion-text>
+        </ng-template>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>
