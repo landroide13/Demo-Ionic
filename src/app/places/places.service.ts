@@ -29,7 +29,7 @@ export class PlacesService {
 
   deletePlace(id: number){
     this.Places = this.Places.filter(place => {
-      return place.id === id
+      return place.id !== id
     })
   }
 
