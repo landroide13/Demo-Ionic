@@ -24,6 +24,10 @@ const routes: Routes = [
       }
     ]
   },
+  {
+    path: 'place-add',
+    loadChildren: () => import('./place-add/place-add.module').then( m => m.PlaceAddPageModule)
+  },
   // {
   //   path: 'place-detail',
   //   loadChildren: () => import('./place-detail/place-detail.module').then( m => m.PlaceDetailPageModule)
