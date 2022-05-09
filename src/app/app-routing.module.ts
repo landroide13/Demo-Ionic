@@ -13,8 +13,21 @@ const routes: Routes = [
   },
   {
     path: 'places',
-    loadChildren: () => import('./places/places.module').then( m => m.PlacesPageModule)
+    children:[
+      {
+        path:"",
+        loadChildren: () => import('./places/places.module').then( m => m.PlacesPageModule)
+      },
+      {
+        path:":placeId",
+        loadChildren: () => import('./place-detail/place-detail.module').then( m => m.PlaceDetailPageModule)
+      }
+    ]
   },
+  // {
+  //   path: 'place-detail',
+  //   loadChildren: () => import('./place-detail/place-detail.module').then( m => m.PlaceDetailPageModule)
+  // },
 ];
 
 @NgModule({
